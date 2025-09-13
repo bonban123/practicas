@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App del Clima RGB</title>
-<link rel="stylesheet" href="style2.css">
-<!-- Font Awesome para íconos -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<title>Clima RGB</title>
+<link rel="stylesheet" href="style2.css" />
+<script src="script.js" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<div class="app">
-<h1>🌦 Mi Clima Actual</h1>
-<div id="loading" class="loading">Cargando clima...</div>
-<div class="weather-card hidden" id="weatherCard">
-<h2 id="city"></h2>
-<p class="temp"><span id="temp"></span>°C</p>
-<p><i id="icon"></i> <span id="description"></span></p>
-<p>Sensación: <span id="feels"></span>°C</p>
-<p>Humedad: <span id="humidity"></span>%</p>
-<p>Viento: <span id="wind"></span> km/h</p>
-</div>
-<!-- Buscador si falla la geolocalización -->
-<div class="search hidden" id="searchBox">
-<input type="text" id="cityInput" placeholder="Ingresa tu ciudad">
-<button onclick="getWeatherByCity()">Buscar</button>
+<!-- Popup inicial -->
+<div id="popup" class="popup">
+<div class="popup-content">
+<h2>🌍 Permiso de ubicación</h2>
+<p>Por favor permite el acceso a tu ubicación para mostrar el clima actual.</p>
+<button id="okBtn">Entendido</button>
 </div>
 </div>
-<script src="script.js"></script>
+<!-- Elementos dinámicos se crean desde JS -->
 </body>
 </html>
+ 
