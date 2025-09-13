@@ -1,0 +1,90 @@
+/* ====== ESTILOS BASE RGB NEÓN ====== */
+body {
+ margin: 0;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ color: white;
+ text-align: center;
+ background: linear-gradient(135deg, #ff00ff, #00ffff, #00ff00);
+ background-size: 400% 400%;
+ animation: gradientMove 8s ease infinite;
+}
+@keyframes gradientMove {
+ 0% {background-position: 0% 50%;}
+ 50% {background-position: 100% 50%;}
+ 100% {background-position: 0% 50%;}
+}
+.app {
+ background: rgba(0,0,0,0.6);
+ padding: 20px 30px;
+ border-radius: 15px;
+ box-shadow: 0px 0px 20px #00ffff;
+ max-width: 350px;
+ width: 100%;
+}
+h1 {
+ margin-bottom: 15px;
+ color: #00ffcc;
+ text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffcc;
+}
+/* Tarjeta de clima */
+.weather-card {
+ padding: 15px;
+ border-radius: 12px;
+ background: rgba(255,255,255,0.1);
+ box-shadow: 0 0 15px rgba(0,255,255,0.7);
+ margin-bottom: 15px;
+ animation: fadeIn 1.5s ease;
+}
+.hidden { display: none; }
+.temp {
+ font-size: 2.5em;
+ font-weight: bold;
+ margin: 10px 0;
+ color: #ffcc00;
+ text-shadow: 0 0 8px #ff0;
+}
+.loading {
+ font-size: 1.2em;
+ color: #fff;
+ animation: blink 1.5s infinite;
+}
+@keyframes blink {
+ 0%, 100% {opacity: 1;}
+ 50% {opacity: 0.5;}
+}
+.search input {
+ padding: 8px;
+ border: none;
+ border-radius: 8px;
+ margin-top: 10px;
+ width: 70%;
+}
+.search button {
+ padding: 8px 15px;
+ border: none;
+ border-radius: 8px;
+ margin-left: 5px;
+ cursor: pointer;
+ background: #00ffcc;
+ color: black;
+ font-weight: bold;
+ transition: 0.3s;
+}
+.search button:hover {
+ background: #00ffaa;
+ box-shadow: 0px 0px 10px #00ffff;
+}
+/* ====== FONDOS DINÁMICOS SEGÚN CLIMA ====== */
+.sunny { background: linear-gradient(to top, #fbc531, #00a8ff); }
+.rainy { background: linear-gradient(to top, #353b48, #273c75); }
+.cloudy { background: linear-gradient(to top, #95a5a6, #7f8c8d); }
+.snowy { background: linear-gradient(to top, #dcdde1, #ffffff); }
+/* Animación suave */
+@keyframes fadeIn {
+ from {opacity: 0;}
+ to {opacity: 1;}
+}
