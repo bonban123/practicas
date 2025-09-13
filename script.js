@@ -1,5 +1,5 @@
 // ===================== CONFIG =====================
-// Coloca tu API Key gratuita de OpenWeatherMap aquí 👇
+// 👉 Coloca aquí tu API Key de OpenWeatherMap
 const API_KEY = "TU_API_KEY";
 // Referencias al DOM
 const popup = document.getElementById("popup");
@@ -20,19 +20,16 @@ document.body.appendChild(searchBox);
 const cityInput = searchBox.querySelector("#cityInput");
 const searchBtn = searchBox.querySelector("#searchBtn");
 // ===================== EVENTOS =====================
-// Cuando el usuario cierra el popup
 okBtn.addEventListener("click", () => {
  popup.classList.add("hidden");
  solicitarUbicacion();
 });
-// Botón buscar ciudad manual
 searchBtn.addEventListener("click", () => {
  if (cityInput.value.trim() !== "") {
    getWeatherByCity(cityInput.value.trim());
  }
 });
 // ===================== FUNCIONES =====================
-// Solicitar ubicación del navegador
 function solicitarUbicacion() {
  if (navigator.geolocation) {
    loading.textContent = "🔍 Solicitando permiso de ubicación...";
@@ -51,7 +48,6 @@ function solicitarUbicacion() {
    loading.textContent = "⚠️ Geolocalización no soportada.";
  }
 }
-// Manejo de errores de geolocalización
 function manejarErrores(err) {
  if (err.code === 1) {
    loading.textContent = "❌ Permiso denegado. Ingresa tu ciudad:";
@@ -64,7 +60,6 @@ function manejarErrores(err) {
  }
  searchBox.classList.remove("hidden");
 }
-// Obtener clima por coordenadas
 async function getWeather(lat, lon) {
  try {
    loading.textContent = "⏳ Cargando clima...";
@@ -72,11 +67,10 @@ async function getWeather(lat, lon) {
    const res = await fetch(url);
    const data = await res.json();
    mostrarClima(data);
- } catch (error) {
+ } catch {
    loading.textContent = "⚠️ Error al obtener datos del clima.";
  }
 }
-// Obtener clima por ciudad
 async function getWeatherByCity(city) {
  try {
    loading.textContent = "⏳ Cargando clima...";
@@ -88,11 +82,10 @@ async function getWeatherByCity(city) {
    } else {
      mostrarClima(data);
    }
- } catch (error) {
+ } catch {
    loading.textContent = "⚠️ Error al obtener datos del clima.";
  }
 }
-// Mostrar datos en la tarjeta
 function mostrarClima(data) {
  loading.textContent = "";
  card.classList.remove("hidden");
@@ -112,7 +105,6 @@ function mostrarClima(data) {
  `;
  cambiarFondo(data.weather[0].main);
 }
-// Cambiar fondo según clima
 function cambiarFondo(clima) {
  switch (clima.toLowerCase()) {
    case "clear":
